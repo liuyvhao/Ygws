@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.mob.sdk'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "hhxk.ygw"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "arm64-v8a", "x86_64"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    MobSDK {
+        appKey "2781d8be35330"
+        appSecret "44b3822c95c7686693374694147d3da5"
+
+        SMSSDK {}
+    }
+}
+
+
+
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+        jcenter() // 或者 mavenCentral()
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.anko:anko:$anko_version"
+    implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
+    implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
+    implementation 'com.facebook.fresco:fresco:1.10.0+'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.youth.banner:banner:latest.integration'
+    implementation 'com.amap.api:3dmap:latest.integration'
+    implementation 'com.amap.api:search:latest.integration'
+    implementation 'com.amap.api:location:latest.integration'
+//    implementation 'com.netease.nimlib:basesdk:3.3.0'// 基础功能 (必需)
+//    implementation 'com.netease.nimlib:avchat:3.3.0'// 音视频需要
+//    implementation 'com.netease.nimlib:chatroom:3.3.0'// 聊天室需要
+//    implementation 'com.netease.nimlib:rts:3.3.0' // 实时会话服务需要
+//    implementation 'com.netease.nimlib:lucene:3.3.0'// 全文检索服务需要
+//    implementation 'com.netease.nimlib:basesdk:4.4.0'// 基础功能 (必需)
+//    implementation 'com.netease.nimlib:nrtc:4.4.0' // 音视频需要
+//    implementation 'com.netease.nimlib:avchat:4.4.0'// 音视频需要
+    implementation 'cn.yipianfengye.android:zxing-library:latest.integration'
+    implementation 'com.ohmerhe.kolley:kolley:latest.integration'
+    implementation 'com.alibaba:fastjson:1.1.70.android'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

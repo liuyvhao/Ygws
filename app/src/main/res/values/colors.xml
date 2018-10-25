@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2E8B57</color>
+    <color name="colorPrimaryDark">#2E8B57</color>
+    <color name="colorAccent">#2E8B57</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="DimGray">#696969</color>
+
+    <color name="dLine">#dcdcdc</color>
+    <color name="line">#8a8a8a</color>
+    <color name="viewBg">#f5f5f5</color>
+</resources>

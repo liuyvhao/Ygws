@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/DimGray"
+    android:orientation="vertical"
+    tools:context=".MyCodeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/DimGray">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#696969"
+            android:src="@drawable/back_w" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/back"
+            android:text="我的二维码"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/uImg"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/uImg"
+                android:text="清风霁月不饶怀"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toRightOf="@id/uImg"
+                android:text="陕西 西安"
+                android:textColor="@color/line"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="270dp">
+
+            <ImageView
+                android:id="@+id/code"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:text="扫一扫上面的二维码，加好友"
+            android:textColor="@color/line"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

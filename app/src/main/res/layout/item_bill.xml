@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/viewBg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/bg_white">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/img"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            app:roundBottomLeft="false"
+            app:roundTopLeft="false"
+            app:roundedCornerRadius="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="25dp"
+            android:text="已保障"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="35dp"
+            android:gravity="center_horizontal|bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="52"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="天"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/center_right" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:text="账户安全险"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="45dp"
+            android:text="保障期限：2018-08-25至2019-02-24"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="15dp"
+            android:text="在线理赔"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

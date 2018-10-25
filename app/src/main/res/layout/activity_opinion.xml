@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/viewBg"
+    android:orientation="vertical"
+    tools:context=".OpinionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:elevation="2dp">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/back_w" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/back"
+            android:text="意见反馈"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_b"
+                    android:layout_width="90dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/rb_proposal_left"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="投诉"
+                    android:textColor="@color/rb_txt_selector"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_w"
+                    android:layout_width="90dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/rb_proposal_right"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="建议"
+                    android:textColor="@color/rb_txt_selector"
+                    android:textSize="12sp" />
+            </RadioGroup>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/proposal_bg"
+        android:gravity="top"
+        android:hint="@string/proposal"
+        android:lineSpacingExtra="2dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/btn_login_l"
+        android:text="提 交"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

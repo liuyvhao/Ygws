@@ -6,10 +6,10 @@ import android.support.v7.widget.LinearLayoutManager
 import com.alibaba.fastjson.JSONArray
 import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
+import hhxk.YgwCache
 import hhxk.adapter.CarAdapter
 import hhxk.pojo.Car
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import hhxk.util.LoadingDialog
 import kotlinx.android.synthetic.main.activity_my_car.*
 import org.jetbrains.anko.startActivity
@@ -45,12 +45,12 @@ class MyCarActivity : AppCompatActivity() {
 
     private fun initData() {
         Http.get {
-            url = HeadUrl.url + "/vehicleinformation/list"
+            url = YgwCache.url + "/vehicleinformation/list"
             headers {
-                "Authorization" - HeadUrl.token
+                "Authorization" - YgwCache.getToken()!!
             }
             params {
-                "id" - HeadUrl.id
+                "id" - YgwCache.id
                 "page" - "1"
                 "limit" - "20"
             }

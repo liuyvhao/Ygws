@@ -1,20 +1,15 @@
 package hhxk
 
 import android.app.Application
-import android.graphics.Color
+import android.text.TextUtils
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.mob.MobSDK
-//import com.netease.nimlib.sdk.NIMClient
-//import com.netease.nimlib.sdk.SDKOptions
-//import com.netease.nimlib.sdk.StatusBarNotificationConfig
-//import com.netease.nimlib.sdk.avchat.AVChatManager
+import com.netease.nimlib.sdk.NIMClient
+import com.netease.nimlib.sdk.auth.LoginInfo
+import com.netease.nimlib.sdk.util.NIMUtil
 import com.ohmerhe.kolley.request.Http
 import com.uuzuche.lib_zxing.activity.ZXingLibrary
-
-//import android.R.attr.data
-//import com.netease.nimlib.sdk.avchat.constant.AVChatControlCommand
-//import hhxk.ygw.AVChatActivity
-//import org.jetbrains.anko.startActivity
+import hhxk.util.Preferences
 
 
 class MyApplication : Application() {
@@ -24,7 +19,12 @@ class MyApplication : Application() {
         ZXingLibrary.initDisplayOpinion(this)
         Http.init(this)
         MobSDK.init(this)
-//        NIMClient.init(this, null, options())
+        YgwCache.setContext(this)
+        NIMClient.init(this, getLoginInfo(), NimSDKOptionConfig.getSDKOptions(this))
+
+        if (NIMUtil.isMainProcess(this)) {
+//            initAVChatKit()
+        }
 
 //        AVChatManager.getInstance().observeIncomingCall({
 //            val extra = it.extra
@@ -41,15 +41,49 @@ class MyApplication : Application() {
 //        },true)
     }
 
-//    fun options(): SDKOptions {
-//        var op = SDKOptions()
-//        // 如果将新消息通知提醒托管给 SDK 完成，需要添加以下配置。否则无需设置。
-//        var config = StatusBarNotificationConfig()
-////        config.notificationEntrance=We
-//        // 呼吸灯配置
-//        config.ledARGB = Color.GREEN
-//        config.ledOnMs = 1000
-//        config.ledOffMs = 1500
-//        return op
+    private fun getLoginInfo(): LoginInfo? {
+        val account = Preferences.getUserAccount()
+        val token = Preferences.getUserToken()
+        return if (!TextUtils.isEmpty(account) && !TextUtils.isEmpty(token)) {
+            YgwCache.setAccount(account!!.toLowerCase())
+            LoginInfo(account, token)
+        } else {
+            null
+        }
+    }
+
+//    private fun initAVChatKit() {
+//        val avChatOptions = object : AVChatOptions() {
+//            fun logout(context: Context) {
+//                MainActivity.logout(context, true)
+//            }
+//        }
+//        avChatOptions.entranceActivity = WelcomeActivity::class.java
+//        avChatOptions.notificationIconRes = R.drawable.ic_stat_notify_msg
+//        AVChatKit.init(avChatOptions)
+//
+//        // 初始化日志系统
+//        LogHelper.init()
+//        // 设置用户相关资料提供者
+//        AVChatKit.setUserInfoProvider(object : IUserInfoProvider() {
+//            fun getUserInfo(account: String): UserInfo {
+//                return NimUIKit.getUserInfoProvider().getUserInfo(account)
+//            }
+//
+//            fun getUserDisplayName(account: String): String {
+//                return UserInfoHelper.getUserDisplayName(account)
+//            }
+//        })
+//        // 设置群组数据提供者
+//        AVChatKit.setTeamDataProvider(object : ITeamDataProvider() {
+//            fun getDisplayNameWithoutMe(teamId: String, account: String): String {
+//                return TeamHelper.getDisplayNameWithoutMe(teamId, account)
+//            }
+//
+//            fun getTeamMemberDisplayName(teamId: String, account: String): String {
+//                return TeamHelper.getTeamMemberDisplayName(teamId, account)
+//            }
+//        })
 //    }
+
 }

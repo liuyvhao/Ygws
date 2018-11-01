@@ -8,8 +8,8 @@ import android.support.annotation.RequiresApi
 import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
 import com.uuzuche.lib_zxing.activity.CodeUtils
+import hhxk.YgwCache
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import hhxk.util.LoadingDialog
 import kotlinx.android.synthetic.main.activity_my_code.*
 import org.jetbrains.anko.toast
@@ -39,9 +39,9 @@ class MyCodeActivity : AppCompatActivity() {
 
     fun initData(){
         Http.get {
-            url = HeadUrl.url + "/personalCenter"
+            url = YgwCache.url + "/personalCenter"
             params {
-                "phone" - HeadUrl.loginName
+                "phone" - YgwCache.getAccount()!!
             }
             onStart { dialog.show() }
             onSuccess {

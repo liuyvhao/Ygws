@@ -3,10 +3,8 @@ package hhxk.ygw
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
-import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
-import hhxk.util.LogOutDialog
-import hhxk.util.database
+import hhxk.YgwCache
+import hhxk.util.*
 import kotlinx.android.synthetic.main.activity_setting.*
 import org.jetbrains.anko.startActivity
 
@@ -24,7 +22,7 @@ class SettingActivity : AppCompatActivity() {
 
     fun initView() {
         back.setOnClickListener { finish() }
-        var p = HeadUrl.loginName
+        var p = YgwCache.getAccount()!!
         var c = p.substring(3, 9)
         phone.text = p.replace(c, "******")
 
@@ -36,9 +34,7 @@ class SettingActivity : AppCompatActivity() {
             dialog.show()
             dialog.yes!!.setOnClickListener {
                 startActivity<LoginActivity>()
-                database.use {
-                    execSQL("delete from userInfo where phone='" + HeadUrl.loginName + "'")
-                }
+                Preferences.removeToken()
                 finish()
                 MainActivity.mainActivity!!.finish()
             }

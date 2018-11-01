@@ -12,10 +12,10 @@ import com.alibaba.fastjson.JSONObject
 import com.facebook.drawee.view.SimpleDraweeView
 import com.ohmerhe.kolley.request.Http
 import com.youth.banner.loader.ImageLoader
+import hhxk.YgwCache
 import hhxk.adapter.NewsAdapter
 import hhxk.pojo.News
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import hhxk.util.OnItemClickListener
 import kotlinx.android.synthetic.main.activity_home.*
 import org.jetbrains.anko.startActivity
@@ -72,7 +72,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initData() {
         Http.get {
-            url = HeadUrl.url + "/news/getBannerList"
+            url = YgwCache.url + "/news/getBannerList"
             onSuccess {
                 var str = it.toString(Charset.defaultCharset())
                 var j = JSONObject.parseObject(str)
@@ -97,7 +97,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         Http.get {
-            url = HeadUrl.url + "/news/getHome"
+            url = YgwCache.url + "/news/getHome"
             params {
                 "page" - "1"
                 "rows" - "2"

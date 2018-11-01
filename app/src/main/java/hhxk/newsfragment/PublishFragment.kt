@@ -11,10 +11,10 @@ import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
 import hhxk.adapter.NewsAdapter
 import hhxk.pojo.News
-import hhxk.util.HeadUrl
 import hhxk.util.OnItemClickListener
 import hhxk.ygw.NewsInfoActivity
 import hhxk.ygw.R
+import hhxk.YgwCache
 import kotlinx.android.synthetic.main.fragment_publish.view.*
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
@@ -48,7 +48,7 @@ class PublishFragment: Fragment() {
 
     fun initData() {
         Http.get {
-            url = HeadUrl.url + "/news/getNewsList"
+            url = YgwCache.url + "/news/getNewsList"
             params {
                 "type" - "4"
                 "page" - "1"

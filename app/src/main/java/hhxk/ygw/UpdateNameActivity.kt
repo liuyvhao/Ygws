@@ -7,8 +7,8 @@ import android.text.TextWatcher
 import android.view.View
 import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
+import hhxk.YgwCache
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import hhxk.util.LoadingDialog
 import kotlinx.android.synthetic.main.activity_update_name.*
 import org.jetbrains.anko.toast
@@ -49,9 +49,9 @@ class UpdateNameActivity : AppCompatActivity() {
         submit.setOnClickListener {
             if (name.text.trim() != null) {
                 Http.get {
-                    url = HeadUrl.url + "/updateName"
+                    url = YgwCache.url + "/updateName"
                     params {
-                        "phone" - HeadUrl.loginName
+                        "phone" - YgwCache.getAccount()!!
                         "name" - name.text.trim().toString()
                     }
                     onStart { dialog.show() }

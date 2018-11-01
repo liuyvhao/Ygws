@@ -6,8 +6,8 @@ import cn.smssdk.EventHandler
 import cn.smssdk.SMSSDK
 import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
+import hhxk.YgwCache
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import hhxk.util.LoadingDialog
 import kotlinx.android.synthetic.main.activity_terminal.*
 import org.jetbrains.anko.toast
@@ -32,7 +32,7 @@ class TerminalActivity : AppCompatActivity() {
 
     fun initView() {
         back.setOnClickListener { finish() }
-        var p = HeadUrl.loginName
+        var p = YgwCache.getAccount()!!
         var c = p.substring(3, 9)
         phone.text = p.replace(c, "******")
 
@@ -49,7 +49,7 @@ class TerminalActivity : AppCompatActivity() {
                                 if (result == SMSSDK.RESULT_COMPLETE) {
                                     //处理验证码验证通过的结果
                                     Http.get {
-                                        url = HeadUrl.url + "/updateTimPwd"
+                                        url = YgwCache.url + "/updateTimPwd"
                                         params {
                                             "phone" - p
                                             "temId" - number.text.toString().trim()

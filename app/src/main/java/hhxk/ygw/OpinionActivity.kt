@@ -4,8 +4,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
+import hhxk.YgwCache
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import hhxk.util.LoadingDialog
 import kotlinx.android.synthetic.main.activity_opinion.*
 import org.jetbrains.anko.toast
@@ -34,12 +34,12 @@ class OpinionActivity : AppCompatActivity() {
             } else {
                 var type = if (radio_b.isChecked) 0 else 1
                 Http.post {
-                    url = HeadUrl.url + "/complaintproposal/insert"
+                    url = YgwCache.url + "/complaintproposal/insert"
                     headers {
-                        "Authorization" - HeadUrl.token
+                        "Authorization" - YgwCache.getToken()!!
                     }
                     params {
-                        "userId" - HeadUrl.id
+                        "userId" - YgwCache.id
                         "type" - type.toString()
                         "content" - message.text.toString()
                     }

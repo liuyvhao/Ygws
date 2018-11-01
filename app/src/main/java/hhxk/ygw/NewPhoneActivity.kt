@@ -9,8 +9,8 @@ import cn.smssdk.EventHandler
 import cn.smssdk.SMSSDK
 import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
+import hhxk.YgwCache
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import hhxk.util.LoadingDialog
 import kotlinx.android.synthetic.main.activity_new_phone.*
 import org.jetbrains.anko.toast
@@ -80,9 +80,9 @@ class NewPhoneActivity : AppCompatActivity() {
                                 if (result == SMSSDK.RESULT_COMPLETE) {
                                     //处理验证码验证通过的结果
                                     Http.get {
-                                        url = HeadUrl.url + "/updatePhone"
+                                        url = YgwCache.url + "/updatePhone"
                                         params {
-                                            "phone" - HeadUrl.loginName
+                                            "phone" - YgwCache.getAccount()!!
                                             "newPhone" - phone.text.trim().toString()
                                         }
                                         onStart { dialog.show() }

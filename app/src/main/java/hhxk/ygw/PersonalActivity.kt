@@ -10,9 +10,9 @@ import android.provider.MediaStore
 import android.util.Log
 import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
+import hhxk.YgwCache
 import hhxk.util.ActiivtyStack
 import hhxk.util.CameraDialog
-import hhxk.util.HeadUrl
 import hhxk.util.LoadingDialog
 import kotlinx.android.synthetic.main.activity_personal.*
 import org.jetbrains.anko.startActivity
@@ -80,9 +80,9 @@ class PersonalActivity : AppCompatActivity() {
 
     private fun initData() {
         Http.get {
-            url = HeadUrl.url + "/personalCenter"
+            url = YgwCache.url + "/personalCenter"
             params {
-                "phone" - HeadUrl.loginName
+                "phone" - YgwCache.getAccount()!!
             }
             onStart { dialog.show() }
             onSuccess {
@@ -113,12 +113,12 @@ class PersonalActivity : AppCompatActivity() {
 
     private fun uplodImg(pic: String) {
         Http.post {
-            url = HeadUrl.url + "/updateAvatar"
+            url = YgwCache.url + "/updateAvatar"
             headers {
-                "Authorization" - HeadUrl.token
+                "Authorization" - YgwCache.getToken()!!
             }
             params {
-                "phone" - HeadUrl.loginName
+                "phone" - YgwCache.getAccount()!!
             }
             files {
                 "file" - pic

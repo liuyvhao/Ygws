@@ -73,7 +73,7 @@
 
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/img"
-                    android:layout_width="80dp"
+                    android:layout_width="100dp"
                     android:layout_height="80dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
@@ -82,7 +82,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginLeft="35dp"
                     android:layout_toRightOf="@id/img"
                     android:gravity="center_vertical"
                     android:orientation="vertical">
@@ -352,7 +352,9 @@
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white" />
+                    android:background="@color/white"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp" />
             </FrameLayout>
 
             <RelativeLayout
@@ -397,8 +399,8 @@
                 android:layout_height="48dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/bt_send_b"
                 android:text="上 报"
                 android:textColor="@color/white"

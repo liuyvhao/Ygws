@@ -2,8 +2,8 @@ package hhxk.ygw
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import hhxk.YgwCache
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import kotlinx.android.synthetic.main.activity_update_phone.*
 import org.jetbrains.anko.startActivity
 
@@ -21,7 +21,7 @@ class UpdatePhoneActivity : AppCompatActivity() {
 
     fun initView(){
         back.setOnClickListener { finish() }
-        var p = HeadUrl.loginName
+        var p = YgwCache.getAccount()!!
         var c = p.substring(3, 9)
         phone.text = p.replace(c, "******")
 

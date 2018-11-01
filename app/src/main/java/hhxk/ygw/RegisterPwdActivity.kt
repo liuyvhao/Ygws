@@ -8,8 +8,8 @@ import android.text.TextWatcher
 import android.view.View
 import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
+import hhxk.YgwCache
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import hhxk.util.LoadingDialog
 import kotlinx.android.synthetic.main.activity_register_pwd.*
 import org.jetbrains.anko.startActivity
@@ -58,7 +58,7 @@ class RegisterPwdActivity : AppCompatActivity() {
         submit.setOnClickListener {
             if (pwd.text.isNotEmpty()) {
                 Http.post {
-                    url = HeadUrl.url + "/register"
+                    url = YgwCache.url + "/register"
                     params {
                         "phone" - phone.text.toString()
                         "password" - pwd.text.toString()

@@ -7,8 +7,8 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
+import hhxk.YgwCache
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import kotlinx.android.synthetic.main.activity_news_info.*
 import org.jetbrains.anko.toast
 import java.nio.charset.Charset
@@ -45,9 +45,9 @@ class NewsInfoActivity : AppCompatActivity() {
 
     private fun initData() {
         Http.get {
-            url = HeadUrl.url + "/news/getNewsById"
+            url = YgwCache.url + "/news/getNewsById"
             headers {
-                "Authorization" - HeadUrl.token
+                "Authorization" - YgwCache.getToken()!!
             }
             params {
                 "id" - intent.getStringExtra("id")

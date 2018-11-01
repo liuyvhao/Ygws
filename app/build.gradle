@@ -7,7 +7,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "hhxk.ygw"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -57,9 +57,9 @@ dependencies {
 //    implementation 'com.netease.nimlib:chatroom:3.3.0'// 聊天室需要
 //    implementation 'com.netease.nimlib:rts:3.3.0' // 实时会话服务需要
 //    implementation 'com.netease.nimlib:lucene:3.3.0'// 全文检索服务需要
-//    implementation 'com.netease.nimlib:basesdk:4.4.0'// 基础功能 (必需)
-//    implementation 'com.netease.nimlib:nrtc:4.4.0' // 音视频需要
-//    implementation 'com.netease.nimlib:avchat:4.4.0'// 音视频需要
+    implementation 'com.netease.nimlib:basesdk:4.4.0'// 基础功能 (必需)
+    implementation 'com.netease.nimlib:nrtc:4.4.0' // 音视频需要
+    implementation 'com.netease.nimlib:avchat:4.4.0'// 音视频需要
     implementation 'cn.yipianfengye.android:zxing-library:latest.integration'
     implementation 'com.ohmerhe.kolley:kolley:latest.integration'
     implementation 'com.alibaba:fastjson:1.1.70.android'

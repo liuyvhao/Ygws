@@ -8,8 +8,8 @@ import android.text.TextWatcher
 import android.view.View
 import com.alibaba.fastjson.JSONObject
 import com.ohmerhe.kolley.request.Http
+import hhxk.YgwCache
 import hhxk.util.ActiivtyStack
-import hhxk.util.HeadUrl
 import hhxk.util.LoadingDialog
 import kotlinx.android.synthetic.main.activity_update_pwd.*
 import org.jetbrains.anko.toast
@@ -81,9 +81,9 @@ class UpdatePwdActivity : AppCompatActivity() {
         submit.setOnClickListener {
             if (oldPwd.text.isNotEmpty() && newPwd.text.isNotEmpty()) {
                 Http.get {
-                    url = HeadUrl.url + "/updatePassword"
+                    url = YgwCache.url + "/updatePassword"
                     params {
-                        "phone" - HeadUrl.loginName
+                        "phone" - YgwCache.getAccount()!!
                         "oldPwd" - oldPwd.text.trim().toString()
                         "newPwd" - newPwd.text.trim().toString()
                     }
